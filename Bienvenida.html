@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Bienvenida</title>
+
+  </head>
+  <body>
+    <header></header>
+    <input type="text" id="textboxName" placeholder="">
+    <label for="textboxName">Nombre</label>
+    <br>
+    <input type="text" id="textboxAge" placeholder="">
+    <label for="textboxAge">Edad</label>
+    <br>
+    <div>
+      <input type="radio" id="genderSelect1" name="Gender">
+      <label for="genderSelect1">Hombre</label>
+      <input type="radio" id="genderSelect2" name="Gender">
+      <label for="genderSelect2">Mujer</label>
+    </div>
+    <br>
+    <button onclick="compareAge()">Compara</button>
+    <br>
+    <div id="imagenGenero"></div>
+    <div id="imagenActividad"></div>
+    <script>
+      function compareAge() {
+        let textfield1 = document.getElementById("textboxName");
+        let value1 = textfield1.value;
+        let textfield2 = document.getElementById("textboxAge");
+        let value2 = textfield2.value;
+        let radio1 = document.getElementById("genderSelect1").checked;
+
+        let msg="A "+value1+" de "+value2+" años le gusta ir ";
+        if(value2>0&&value2<=18){
+
+          if(radio1){
+            msg+="al cine";
+            document.getElementById("imagenGenero").innerHTML='<img src="Nino.png" height="300" width="200">';
+            document.getElementById("imagenActividad").innerHTML='<img src="Cine.jpeg" height="300" width="200">';
+          }else{
+            msg+="a jugar en las flores";
+            document.getElementById("imagenGenero").innerHTML='<img src="Nina.png" height="300" width="200">';
+            document.getElementById("imagenActividad").innerHTML='<img src="Flores.jpeg" height="300" width="200">';
+          }
+        }else if(value2>18 && value2<=30){
+          if(radio1){
+            msg+="a la fiesta";
+            document.getElementById("imagenGenero").innerHTML='<img src="JovenH.png" height="300" width="200">';
+            document.getElementById("imagenActividad").innerHTML='<img src="Fiesta.jpg" height="300" width="200">';
+          }else{
+            msg+="al spa";
+            document.getElementById("imagenGenero").innerHTML='<img src="JovenM.png" height="300" width="200">';
+            document.getElementById("imagenActividad").innerHTML='<img src="Spa.png" height="300" width="200">';
+          }
+        }else if(value2>30 && value2<=100){
+          if(radio1){
+            msg+="al gym";
+            document.getElementById("imagenGenero").innerHTML='<img src="Hombre.png" height="300" width="200">';
+            document.getElementById("imagenActividad").innerHTML='<img src="Gym.jpeg" height="300" width="200">';
+          }else{
+            msg+="al brunch";
+            document.getElementById("imagenGenero").innerHTML='<img src="Mujer.png" height="300" width="200">';
+            document.getElementById("imagenActividad").innerHTML='<img src="Brunch.jpeg" height="300" width="200">';
+          }
+        }else{
+          msg="Edad invalida";
+        }
+        alert(msg);
+      }
+
+    </script>
+    <main></main>
+    <footer></footer>
+  </body>
+</html>
